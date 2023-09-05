@@ -1,3 +1,4 @@
 ﻿  inf_game.cpp
-D:\13.C++\inf_game\inf_game\inf_game.cpp(19,19): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-  inf_game.vcxproj -> D:\13.C++\inf_game\x64\Debug\inf_game.exe
+C:\Data\02.Code\C++\inf_game\inf_game\inf_game.cpp(37,19): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+C:\Data\02.Code\C++\inf_game\inf_game\inf_game.cpp(46,21): warning C4101: 'it2' :참조되지 않은 지역 변수입니다.
+  inf_game.vcxproj -> C:\Data\02.Code\C++\inf_game\x64\Debug\inf_game.exe

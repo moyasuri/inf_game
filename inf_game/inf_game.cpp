@@ -36,7 +36,7 @@ int main() {
 	vector<int> v(10);
 	for (int i = 0;i < static_cast<unsigned int>(v.size());i++) // 혹은 vector<int>::size_type i=0;
 	{
-		
+
 		v[i] = i;
 	}
 
@@ -45,11 +45,11 @@ int main() {
 
 	MyVector::iterator it2; // 대강 이렇게 되어있을거라는 예쩨
 
-	
+
 	int* ptr;
 	ptr = &v[0];
-	it = v.begin(); 
-	
+	it = v.begin();
+
 	cout << (*it) << endl;
 	cout << (*ptr) << endl;
 
@@ -62,8 +62,60 @@ int main() {
 
 
 	// _Tptr _Ptr; // pointer to element in vector
-};
+
+	// 포인터 ++ 연산은 주소값을 올려주는거니까
+	// 같은 이치로 it iterator도 주소값 올려주는거
 
 
-	return 0;
+
+	vector<int>::iterator itBegin = v.begin();
+	vector<int>::iterator itEnd = v.end();
+
+	for (vector<int>::iterator it_ = v.begin();it_ != v.end();++it_) // 미세하게나마 ++it이 빨라
+	{
+		cout << (*it_) << endl;
+	}
+	// 포인터 증감후 바로 포인터를 뱉음
+
+	//_CONSTEXPR20 _Vector_const_iterator& operator++() noexcept {
+	//	++_Ptr;
+	//	return *this;
+	//}
+	// 
+	// 임시 변수에 포인터가 가리키는 값을 집어넣고, 포인터 증가후 임시변수를 내뱉음
+	//_CONSTEXPR20 _Vector_const_iterator operator++(int) noexcept {
+	//	_Vector_const_iterator _Tmp = *this;
+	//	++*this;
+	//	return _Tmp;
+	//}
+
+
+	int* ptrBegin = &v[0]; // = v.begin()._Ptr;
+
+	int* ptrEnd = ptrBegin + 10;  // = v.end()._Ptr;
+
+	for (int* ptr = ptrBegin; ptr != ptrEnd; ++ptr)
+	{
+		cout << (*ptr) << endl;
+	}
+
+
+	// const int*;
+	vector<int> ::const_iterator cit1 = v.cbegin();
+	// *cit1 = 100; 수정 불가
+
+
+	// iterator는 다른 컨테이너에도 있는 개념이며 v[i]같은 접근방법이 다른 컨테이너에서는 안될수 있으니
+	// iterator를 사용하는게 좀 더 통일성이 있다.
+
+	for (vector<int>::reverse_iterator it = v.rbegin(); it != v.rend(); ++it)
+	{
+		cout << (*it) << endl;
+
+	}
+	// 역방향 사용할 일이 별로없음
+
+
+
+
 }
